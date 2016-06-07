@@ -1,3 +1,4 @@
+require('../../less/common/common.less');
 require('../../less/login/login.less');
 
 //适配
