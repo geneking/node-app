@@ -44,8 +44,8 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(7);
 	__webpack_require__(1);
+	__webpack_require__(5);
 
 	//适配
 	MT.p2m(640);
@@ -73,9 +73,11 @@
 	};
 
 	/**
+	 * @function listener
 	 * @description 注册提交事件
 	 */
 	var listener = function(){
+
 	  doms.login.on('click', function() {
 	    var data = {
 	      email: doms.email.val(),
@@ -83,6 +85,8 @@
 	    };
 	    request(data);
 	  });
+
+	  doms.email.focus();
 	};
 	listener();
 
@@ -103,8 +107,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/less-loader/index.js!./login.less", function() {
-				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/less-loader/index.js!./login.less");
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/less-loader/index.js!./common.less", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/less-loader/index.js!./common.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -122,7 +126,7 @@
 
 
 	// module
-	exports.push([module.id, "body {\n  background-color: #f6f6f6;\n}\n.main {\n  width: 6.4rem;\n  margin: 0 auto;\n}\n.login-head {\n  width: 6.4rem;\n  height: 4.2rem;\n  margin-bottom: .3rem;\n  background: url(/client/static/images/head-cover.jpg) no-repeat;\n  background-size: 100%;\n}\nform {\n  width: 5.6rem;\n  margin: 0 auto;\n}\n.input-wrap {\n  margin: .2rem 0;\n  border-bottom: .02rem solid #d9d9d9;\n}\n.input-wrap i {\n  display: inline-block;\n  height: .85rem;\n  width: .6rem;\n  background: url(/client/static/images/login-icon.png) no-repeat;\n  background-size: .65rem;\n  background-position: 0 .2rem;\n}\n.input-wrap .pass {\n  background-position: 0 -0.7rem;\n}\n.input-wrap input {\n  float: right;\n  height: .85rem;\n  width: 4.7rem;\n  padding-left: .3rem;\n  border: none;\n  font-size: .32rem;\n  background-color: #f6f6f6;\n  outline: none;\n}\n.footer {\n  width: 5.6rem;\n  margin: 1.5rem auto .5rem auto;\n}\n.footer a {\n  float: left;\n  color: #a2a2a2;\n  text-decoration: none;\n}\n.footer .register {\n  float: right;\n}\n", ""]);
+	exports.push([module.id, "body {\n  background-color: #f6f6f6;\n}\nform {\n  width: 5.6rem;\n  margin: 0 auto;\n}\nform .input-wrap {\n  margin: .2rem 0;\n  border-bottom: .02rem solid #d9d9d9;\n}\nform .input-wrap i {\n  display: inline-block;\n  height: .85rem;\n  width: .6rem;\n  background: url(/client/static/images/login-icon.png) no-repeat;\n  background-size: .65rem;\n  background-position: 0 .2rem;\n}\nform .input-wrap .pass {\n  background-position: 0 -0.7rem;\n}\nform .input-wrap input {\n  float: right;\n  height: .85rem;\n  width: 4.7rem;\n  padding-left: .3rem;\n  border: none;\n  font-size: .32rem;\n  background-color: #f6f6f6;\n  outline: none;\n}\n.button {\n  width: 5.6rem;\n  height: .8rem;\n  margin: .8rem auto;\n  line-height: .8rem;\n  text-align: center;\n  color: #fff;\n  font-size: .28rem;\n  background-color: #06eade;\n  border-radius: .05rem;\n}\n", ""]);
 
 	// exports
 
@@ -436,15 +440,13 @@
 
 
 /***/ },
-/* 5 */,
-/* 6 */,
-/* 7 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(8);
+	var content = __webpack_require__(6);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(4)(content, {});
@@ -453,8 +455,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/less-loader/index.js!./common.less", function() {
-				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/less-loader/index.js!./common.less");
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/less-loader/index.js!./login.less", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/less-loader/index.js!./login.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -464,7 +466,7 @@
 	}
 
 /***/ },
-/* 8 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(3)();
@@ -472,7 +474,7 @@
 
 
 	// module
-	exports.push([module.id, ".button {\n  width: 5.6rem;\n  height: .8rem;\n  margin: .8rem auto;\n  line-height: .8rem;\n  text-align: center;\n  color: #fff;\n  font-size: .28rem;\n  background-color: #06eade;\n  border-radius: .05rem;\n}\n", ""]);
+	exports.push([module.id, ".main {\n  width: 6.4rem;\n  margin: 0 auto;\n}\n.login-head {\n  width: 6.4rem;\n  height: 4.2rem;\n  margin-bottom: .3rem;\n  background: url(/client/static/images/head-cover.jpg) no-repeat;\n  background-size: 100%;\n}\n.footer {\n  width: 5.6rem;\n  margin: 1.5rem auto .5rem auto;\n}\n.footer a {\n  float: left;\n  color: #a2a2a2;\n  text-decoration: none;\n}\n.footer .register {\n  float: right;\n}\n", ""]);
 
 	// exports
 

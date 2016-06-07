@@ -27,9 +27,11 @@ var request = function(data){
 };
 
 /**
+ * @function listener
  * @description 注册提交事件
  */
 var listener = function(){
+
   doms.login.on('click', function() {
     var data = {
       email: doms.email.val(),
@@ -37,5 +39,7 @@ var listener = function(){
     };
     request(data);
   });
+
+  doms.email.focus();
 };
 listener();
