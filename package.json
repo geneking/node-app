@@ -1,7 +1,7 @@
 {
   "name": "node-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "### 第一个基于node的全栈应用，持续开发ing",
   "main": "app.js",
   "dependencies": {
     "express": "^4.13.4"
@@ -10,13 +10,22 @@
     "style-loader": "^0.13.1"
   },
   "scripts": {
-    "start": "node app",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "webpack --watch",
+    "build": "webpack -p",
+    "start": "node app"
   },
   "keywords": [
     "npm",
     "init"
   ],
   "author": "jinweigang",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geneking/node-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/geneking/node-app/issues"
+  },
+  "homepage": "https://github.com/geneking/node-app#readme"
 }

@@ -8,7 +8,7 @@ var register = require('./routes/register/register');
 var conn     = require('./database/connection');
 
 app.listen(3000, function () {
-  console.log("Server已启动......");
+  console.log("Server已启动----访问http://127.0.0.1/login----");
 });
 
 app.use('/client/static', express.static(__dirname + '/client/static'));

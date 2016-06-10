@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "./client/build/";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -44,8 +44,10 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
 	__webpack_require__(1);
-	__webpack_require__(5);
+	__webpack_require__(6);
 
 	//适配
 	MT.p2m(640);
@@ -61,8 +63,8 @@
 	 * @description 注册请求
 	 * @param {email:邮箱, password:密码}
 	 */
-	var request = function(data){
-	  $.post('/login', data, function(res) {
+	var request = function request(data) {
+	  $.post('/login', data, function (res) {
 	    var res = JSON.parse(res);
 	    if (+res.code == 0) {
 	      location.href = '/';
@@ -76,9 +78,9 @@
 	 * @function listener
 	 * @description 注册提交事件
 	 */
-	var listener = function(){
+	var listener = function listener() {
 
-	  doms.login.on('click', function() {
+	  doms.login.on('click', function () {
 	    var data = {
 	      email: doms.email.val(),
 	      password: doms.password.val()
@@ -90,7 +92,6 @@
 	};
 	listener();
 
-
 /***/ },
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
@@ -101,7 +102,7 @@
 	var content = __webpack_require__(2);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(4)(content, {});
+	var update = __webpack_require__(5)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -126,7 +127,7 @@
 
 
 	// module
-	exports.push([module.id, "body {\n  background-color: #f6f6f6;\n}\nform {\n  width: 5.6rem;\n  margin: 0 auto;\n}\nform .input-wrap {\n  margin: .2rem 0;\n  border-bottom: .02rem solid #d9d9d9;\n}\nform .input-wrap i {\n  display: inline-block;\n  height: .85rem;\n  width: .6rem;\n  background: url(/client/static/images/login-icon.png) no-repeat;\n  background-size: .65rem;\n  background-position: 0 .2rem;\n}\nform .input-wrap .pass {\n  background-position: 0 -0.7rem;\n}\nform .input-wrap input {\n  float: right;\n  height: .85rem;\n  width: 4.7rem;\n  padding-left: .3rem;\n  border: none;\n  font-size: .32rem;\n  background-color: #f6f6f6;\n  outline: none;\n}\n.button {\n  width: 5.6rem;\n  height: .8rem;\n  margin: .8rem auto;\n  line-height: .8rem;\n  text-align: center;\n  color: #fff;\n  font-size: .28rem;\n  background-color: #06eade;\n  border-radius: .05rem;\n}\n", ""]);
+	exports.push([module.id, "body {\n  background-color: #f6f6f6;\n}\nform {\n  width: 5.6rem;\n  margin: 0 auto;\n}\nform .input-wrap {\n  margin: .2rem 0;\n  border-bottom: .02rem solid #d9d9d9;\n}\nform .input-wrap i {\n  display: inline-block;\n  height: .85rem;\n  width: .6rem;\n  background: url(" + __webpack_require__(4) + ") no-repeat;\n  background-size: .65rem;\n  background-position: 0 .2rem;\n}\nform .input-wrap .pass {\n  background-position: 0 -0.7rem;\n}\nform .input-wrap input {\n  float: right;\n  height: .85rem;\n  width: 4.7rem;\n  padding-left: .3rem;\n  border: none;\n  font-size: .32rem;\n  background-color: #f6f6f6;\n  outline: none;\n}\n.button {\n  width: 5.6rem;\n  height: .8rem;\n  margin: .8rem auto;\n  line-height: .8rem;\n  text-align: center;\n  color: #fff;\n  font-size: .28rem;\n  background-color: #06eade;\n  border-radius: .05rem;\n}\n", ""]);
 
 	// exports
 
@@ -189,6 +190,12 @@
 
 /***/ },
 /* 4 */
+/***/ function(module, exports) {
+
+	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEEAAACQCAYAAABXlQbPAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2tpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDowMTgwMTE3NDA3MjA2ODExOTJCMDg4ODUzQkY3OTNBOCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpENjMxMzE3MDE5MTMxMUU2ODgyOTlCNDkzRENDQzVFMCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpENjMxMzE2RjE5MTMxMUU2ODgyOTlCNDkzRENDQzVFMCIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpkMzAxNmFlMC04NTdmLTQyNDMtODdiNy00MThlNjIzMTVkMTMiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MDE4MDExNzQwNzIwNjgxMTkyQjA4ODg1M0JGNzkzQTgiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7j0LAaAAADx0lEQVR42uydT2jUQBjFZ20rghQPKhREEFq1oIiKooLabhfsxaP21Ise1CLCnpV6qAf1tmBF7cGeqofSg3+goCBFepKCVXuo7KF39VAXKV0Pxm/IWwghbbfZ7CSTvA8eaSaZyfSXN8lM2kxyjuOorMcWxSAEQiAEQiAEQgiI1s1mKJVK1v2SxWIxWggIW3pYOTYHg9eEn6J+UI9T/aiLcQjLot2iadGIqCWGE9mCY0+jLsumIRwXzaGcYdF7UYdBAB045jDqMIc6GYWwJDorGsV6XvRZdMEAgAKOlcf6KOqyFMc1oSq6JboEK3Y0uXnU7P8Ox/otGkAdqnF3lqYMNI8g+x8TTSapx7hW88hHUHY+Kvub6CfUmoe2aCXg7IWpo9dVlUbtb7KzpC16QjQfcBurN/y333mUORllRZvdYyyLzojGsK7vGl/rbB7+O80YyirbOIpcFV0XDYr+1NE8vPbfgzyDKGPV9qH0hOikaGGd5uG3/wLyTKTpecKi6JSveWjLn4O89n+OfRcT9zwhgliBtT+KnsLyHzz10fa/0eyzn5ShtLd5tEJG7J8EJwQ1j8dYvwmnqCxBqDWPK7Y/VOGTJUIgBEIgBEIgBEIgBEJIeTQ6dnDohIw7IZcmCDn+RyubAyEQAiEQAiEQAiEQAiEQAiEQAiEQAiEQAiEQAiEQAiEQAiEQAiEQAiEQAiEQAiEQAiEQAiEQAiEQAiEQAiEQAiEQAiEQAiEQAiEkNRp6Gy7Jk9ZuNDltUpzQJ3qm3Bm0qlAZaQVrnBAyukVPRL0B27qga6IZ0ZAyMM+SaSf0iD4BwC/RbdER0TboqOgutvVi3540QdAOeCVqV+4ElvqM3xd98zSHL6J7ok7s04483WmAoF8mHRftwC93WbnTiq4VFewzhTzjqokvpJqCoC90p5U7r/JVVd871g72/YG8BdshDGD5CGe53tD7lnxlWAuhD8vXIfK+9ZVhLYS9WIa53X33lWEthK1YhplY9q+vDI4dCIEQCCHxAyinSfuGzZ+jE2IeSsc92YzDawIvjIRACGmAcFj0BkPmCn4+ZPPdYbOhnyfOirZ70i4q97sOtcntU++Ehz4AtdBpD7LSHM6H3JYqCBs9aM0EhJfrbHuRFQh3lPtXJn/MYFsmIOhPGhRwh6jFLNJWsgJBxz/RLs/6TqRlqrOk+ymdnvWuOPoucUPYJ2rzrLchLVMQDgakHSCE4LRUQ9ifBCfE/fWfIYjPEwiBEAghMRHlhdGhEzLuBOs/c0AnKH7fgU4gBEIgBEIIiv8CDADtwLNnmAoXsQAAAABJRU5ErkJggg=="
+
+/***/ },
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -440,16 +447,16 @@
 
 
 /***/ },
-/* 5 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(6);
+	var content = __webpack_require__(7);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(4)(content, {});
+	var update = __webpack_require__(5)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -466,7 +473,7 @@
 	}
 
 /***/ },
-/* 6 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(3)();
@@ -474,10 +481,16 @@
 
 
 	// module
-	exports.push([module.id, ".main {\n  width: 6.4rem;\n  margin: 0 auto;\n}\n.login-head {\n  width: 6.4rem;\n  height: 4.2rem;\n  margin-bottom: .3rem;\n  background: url(/client/static/images/head-cover.jpg) no-repeat;\n  background-size: 100%;\n}\n.footer {\n  width: 5.6rem;\n  margin: 1.5rem auto .5rem auto;\n}\n.footer a {\n  float: left;\n  color: #a2a2a2;\n  text-decoration: none;\n}\n.footer .register {\n  float: right;\n}\n", ""]);
+	exports.push([module.id, ".main {\n  width: 6.4rem;\n  margin: 0 auto;\n}\n.login-head {\n  width: 6.4rem;\n  height: 4.2rem;\n  margin-bottom: .3rem;\n  background: url(" + __webpack_require__(8) + ") no-repeat;\n  background-size: 100%;\n}\n.footer {\n  width: 5.6rem;\n  margin: 1.5rem auto .5rem auto;\n}\n.footer a {\n  float: left;\n  color: #a2a2a2;\n  text-decoration: none;\n}\n.footer .register {\n  float: right;\n}\n", ""]);
 
 	// exports
 
+
+/***/ },
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/login-cover.jpg";
 
 /***/ }
 /******/ ]);

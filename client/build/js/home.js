@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "./client/build/";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -44,10 +44,9 @@
 /* 0 */
 /***/ function(module, exports) {
 
-	$(function(){
-	  MT.p2m(640);
-	});
+	"use strict";
 
+	MT.p2m(640);
 
 /***/ }
 /******/ ]);

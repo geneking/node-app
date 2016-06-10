@@ -1,5 +1,5 @@
-require('../../less/common/common.less');
-require('../../less/login/login.less');
+require('../common/common.less');
+require('./login.less');
 
 //适配
 MT.p2m(640);

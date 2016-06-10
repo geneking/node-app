@@ -2,15 +2,15 @@
   "pages": [
     {
       "name": "home",
-      "src": "./client/static/js/home/home.js"
+      "src": "./client/static/page/home/home.js"
     },
     {
       "name": "login",
-      "src": "./client/static/js/login/login.js"
+      "src": "./client/static/page/login/login.js"
     },
     {
       "name": "register",
-      "src": "./client/static/js/register/register.js"
+      "src": "./client/static/page/register/register.js"
     }
   ]
 }
