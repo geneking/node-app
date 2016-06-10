@@ -1,13 +1,15 @@
-var loginSql   = require('../../database/login/sql');
-var conn       =  require('../../database/connection');
+'use strict';
 
-module.exports = function(request, response){
-  var data = {
+const loginSql   = require('../../database/login/sql');
+const conn       =  require('../../database/connection');
+
+module.exports = (request, response) => {
+  let data = {
     email: request.body.email,
     password: request.body.password
   };
 
-  conn.query(loginSql(data) ,function(err, res){
+  conn.query(loginSql(data) ,(err, res) => {
     if (res) {
       response.json({
         code: 0,

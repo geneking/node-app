@@ -53,20 +53,20 @@
 	MT.p2m(640);
 
 	//dom元素
-	var doms = {
+	var DOMS = {
 	  email: $('input[name=email]'),
-	  password: $('input[name=password]'),
-	  login: $('.login')
+	  password: $('input[type=password]'),
+	  loginBtn: $('.login-btn')
 	};
 
 	/**
-	 * @description 注册请求
+	 * @description 登录请求
 	 * @param {email:邮箱, password:密码}
 	 */
 	var request = function request(data) {
 	  $.post('/login', data, function (res) {
-	    var res = JSON.parse(res);
-	    if (+res.code == 0) {
+	    var data = JSON.parse(res);
+	    if (+data.code == 0) {
 	      location.href = '/';
 	    } else {
 	      MT.toast(res.msg);
@@ -80,15 +80,15 @@
 	 */
 	var listener = function listener() {
 
-	  doms.login.on('click', function () {
+	  DOMS.loginBtn.on('click', function () {
 	    var data = {
-	      email: doms.email.val(),
-	      password: doms.password.val()
+	      email: DOMS.email.val(),
+	      password: DOMS.password.val()
 	    };
 	    request(data);
 	  });
 
-	  doms.email.focus();
+	  DOMS.email.focus();
 	};
 	listener();
 

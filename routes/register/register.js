@@ -1,9 +1,11 @@
-var express  = require('express');
-var page_url = require('../../common/page-url');
+'use strict';
 
-exports.route = function (app) {
+const express  = require('express');
+const page_url = require('../../common/page-url');
 
-  app.get('/register', function (req, res) {
+exports.route = (app) => {
+
+  app.get('/register', (req, res) => {
       res.sendFile( page_url.register);
   });
 };

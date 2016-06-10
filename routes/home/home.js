@@ -1,9 +1,11 @@
-var express  = require('express');
-var page_url = require('../../common/page-url');
+'use strict';
 
-exports.route = function (app) {
+const express  = require('express');
+const page_url = require('../../common/page-url');
+
+exports.route = (app) => {
   //首页
-  app.get('/', function (req, res) {
+  app.get('/', (req, res) => {
       res.sendFile( page_url.home);
   });
 };

@@ -1,4 +1,6 @@
-var mysql = require('mysql');
+'use strict';
+
+const mysql = require('mysql');
 
 module.exports = mysql.createConnection({
     host: 'localhost',

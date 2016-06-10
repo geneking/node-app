@@ -1,13 +1,15 @@
-var webpack     = require('webpack');
-var fs          = require('fs');
-var openBrowser = require('open-browser-webpack-plugin');
+'use strict';
+
+const webpack     = require('webpack');
+const fs          = require('fs');
+const openBrowser = require('open-browser-webpack-plugin');
 
 //获取打包入口路径配置
-var getEntry = function(){
-  var pages = JSON.parse(fs.readFileSync('app.json', 'utf-8')).pages;
-  var entry = {};
+let getEntry = () => {
+  let pages = JSON.parse(fs.readFileSync('app.json', 'utf-8')).pages;
+  let entry = {};
 
-  for (var i = 0; i < pages.length; i++) {
+  for (let i = 0; i < pages.length; i++) {
     entry[pages[i].name] = pages[i].src;
   }
   return entry;

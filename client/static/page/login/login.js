@@ -1,3 +1,5 @@
+'use strict';
+
 require('../common/common.less');
 require('./login.less');
 
@@ -5,20 +7,20 @@ require('./login.less');
 MT.p2m(640);
 
 //dom元素
-var doms = {
+let DOMS = {
   email: $('input[name=email]'),
-  password: $('input[name=password]'),
-  login: $('.login')
+  password: $('input[type=password]'),
+  loginBtn: $('.login-btn')
 };
 
 /**
- * @description 注册请求
+ * @description 登录请求
  * @param {email:邮箱, password:密码}
  */
-var request = function(data){
-  $.post('/login', data, function(res) {
-    var res = JSON.parse(res);
-    if (+res.code == 0) {
+let request = (data) => {
+  $.post('/login', data, (res) => {
+    let data = JSON.parse(res);
+    if (+data.code == 0) {
       location.href = '/';
     } else {
       MT.toast(res.msg);
@@ -30,16 +32,16 @@ var request = function(data){
  * @function listener
  * @description 注册提交事件
  */
-var listener = function(){
+let listener = () => {
 
-  doms.login.on('click', function() {
-    var data = {
-      email: doms.email.val(),
-      password: doms.password.val()
+  DOMS.loginBtn.on('click', () => {
+    let data = {
+      email: DOMS.email.val(),
+      password: DOMS.password.val()
     };
     request(data);
   });
 
-  doms.email.focus();
+  DOMS.email.focus();
 };
 listener();
