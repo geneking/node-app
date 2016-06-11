@@ -19,6 +19,13 @@ app.use('/client/build', express.static(`${__dirname}/client/build`));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
+app.use(session({
+  secret: 'secret',
+  cookie:{
+    maxAge: 1000*60*30
+  }
+}));
+
 //首页
 home.route(app);
 

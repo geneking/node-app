@@ -99,7 +99,7 @@
 	      return false;
 	    }
 
-	    return undefined.samePassword() ? true : false;
+	    return action.samePassword() ? true : false;
 	  }
 	};
 
@@ -113,7 +113,7 @@
 	    if (+data.code == 0) {
 	      location.href = '/login';
 	    } else {
-	      MT.toast(res.msg);
+	      MT.toast(data.msg);
 	    }
 	  });
 	};

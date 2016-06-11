@@ -1,7 +1,8 @@
 'use strict';
 
-const loginSql   = require('../../database/login/sql');
-const conn       = require('../../database/connection');
+const registerSql = require('../../database/register/sql');
+const conn        =  require('../../database/connection');
+const session     = require('express-session');
 
 module.exports = (request, response) => {
   let data = {
@@ -9,15 +10,13 @@ module.exports = (request, response) => {
     password: request.body.password
   };
 
-  conn.query(loginSql(data) ,(err, res) => {
+  conn.query(registerSql(data) ,(err, res) => {
     if (res) {
-      request.session.user = res;
       response.json({
         code: 0,
-        msg: '登录成功'
+        msg: '注册成功'
       });
     } else {
-      request.session.error = err.msg;
       response.json({
         code: 1,
         msg: err.message

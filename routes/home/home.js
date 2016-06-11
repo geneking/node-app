@@ -6,6 +6,9 @@ const page_url = require('../../common/page-url');
 exports.route = (app) => {
   //首页
   app.get('/', (req, res) => {
-      res.sendFile( page_url.home);
+    if(!req.session.user){
+      res.redirect('/login');
+    }
+    res.sendFile( page_url.home);
   });
 };

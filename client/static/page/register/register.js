@@ -53,7 +53,7 @@ let action =  {
       return false;
     }
 
-    return this.samePassword() ? true : false;
+    return action.samePassword() ? true : false;
   }
 };
 
@@ -67,7 +67,7 @@ let request = (data) => {
     if (+data.code == 0) {
       location.href = '/login';
     } else {
-      MT.toast(res.msg);
+      MT.toast(data.msg);
     }
   });
 };

@@ -23,7 +23,7 @@ let request = (data) => {
     if (+data.code == 0) {
       location.href = '/';
     } else {
-      MT.toast(res.msg);
+      MT.toast(data.msg);
     }
   });
 };
