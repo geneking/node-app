@@ -8,7 +8,10 @@ exports.route = (app) => {
 
   //注册页
   app.get('/register', (req, res) => {
-      res.sendFile( page_url.register);
+    if (req.session.user) {
+      res.redirect('/home');
+    }
+    res.sendFile( page_url.register);
   });
 
   //登录请求
