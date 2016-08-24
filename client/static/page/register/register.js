@@ -1,13 +1,13 @@
 'use strict';
 
-require('../common/common.less');
-require('./register.less');
+import '../common/common.less';
+import './register.less';
 
 //适配
 MT.p2m(640);
 
 //dom元素
-let DOMS = {
+const DOMS = {
   email:     $('input[name=email]'),
   password:  $('input[name=password]'),
   password2: $('input[name=password2]'),
@@ -15,14 +15,14 @@ let DOMS = {
 };
 
 //操作
-let action =  {
+const action =  {
   /**
    * @function samePassword
    * @description 判断两次密码是否一致
    * @param {password:密码, password2:确认密码}
    */
   samePassword: () => {
-    let password = $.trim(DOMS.password.val()),
+    const password = $.trim(DOMS.password.val()),
         password2 = $.trim(DOMS.password2.val());
 
     if (password != password2) {
@@ -38,7 +38,7 @@ let action =  {
    * @description 表单校验
    */
   validForm: () => {
-    let emailReg = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/,
+    const emailReg = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/,
         passReg = /^[a-zA-Z]\w{5,17}$/;
 
     //验证邮箱
@@ -61,9 +61,9 @@ let action =  {
  * @description 注册请求
  * @param {email:邮箱, password:密码}
  */
-let request = (data) => {
+const request = (data) => {
   $.post('/register', data, (res) => {
-    let data = JSON.parse(res);
+    const data = JSON.parse(res);
     if (+data.code == 0) {
       location.href = '/login';
     } else {
@@ -76,9 +76,9 @@ let request = (data) => {
  * @function listener
  * @description 注册提交事件
  */
-let listener = () => {
+const listener = () => {
   DOMS.regBtn.on('click', () => {
-    let data = {
+    const data = {
       email: DOMS.email.val(),
       password: DOMS.password.val()
     };

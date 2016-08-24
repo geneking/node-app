@@ -10,7 +10,7 @@ const login      = require('./routes/login/login');
 const register   = require('./routes/register/register');
 const conn       = require('./database/connection');
 
-app.listen(3000, () => console.log('Server已启动......请访问http://127.0.0.1/login'.green));
+app.listen(3000, () => console.log('Server已启动......请访问http://127.0.0.1:3000/login'.green));
 
 app.use('/client/static', express.static(`${__dirname}/client/static`));
 app.use('/client/build', express.static(`${__dirname}/client/build`));

@@ -1,13 +1,13 @@
 'use strict';
 
-require('../common/common.less');
-require('./login.less');
+import '../common/common.less';
+import './login.less';
 
 //适配
 MT.p2m(640);
 
 //dom元素
-let DOMS = {
+const DOMS = {
   email: $('input[name=email]'),
   password: $('input[type=password]'),
   loginBtn: $('.login-btn')
@@ -17,9 +17,9 @@ let DOMS = {
  * @description 登录请求
  * @param {email:邮箱, password:密码}
  */
-let request = (data) => {
+const request = (data) => {
   $.post('/login', data, (res) => {
-    let data = JSON.parse(res);
+    const data = JSON.parse(res);
     if (+data.code == 0) {
       location.href = '/';
     } else {
@@ -32,10 +32,10 @@ let request = (data) => {
  * @function listener
  * @description 注册提交事件
  */
-let listener = () => {
+const listener = () => {
 
   DOMS.loginBtn.on('click', () => {
-    let data = {
+    const data = {
       email: DOMS.email.val(),
       password: DOMS.password.val()
     };

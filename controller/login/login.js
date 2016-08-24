@@ -1,10 +1,10 @@
 'use strict';
 
-const loginSql   = require('../../database/login/sql');
-const conn       = require('../../database/connection');
+const loginSql = require('../../database/login/sql');
+const conn     = require('../../database/connection');
 
 module.exports = (request, response) => {
-  let data = {
+  const data = {
     email: request.body.email,
     password: request.body.password
   };

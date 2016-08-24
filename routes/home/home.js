@@ -1,7 +1,7 @@
 'use strict';
 
 const express  = require('express');
-const page_url = require('../../common/page-url');
+const pageUrl  = require('../../common/page-url');
 
 exports.route = (app) => {
   //首页
@@ -9,6 +9,6 @@ exports.route = (app) => {
     if(!req.session.user){
       res.redirect('/login');
     }
-    res.sendFile( page_url.home);
+    res.sendFile(pageUrl.home);
   });
 };

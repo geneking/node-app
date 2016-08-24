@@ -1,12 +1,12 @@
 'use strict';
 
-const webpack     = require('webpack');
 const fs          = require('fs');
 const openBrowser = require('open-browser-webpack-plugin');
+const buildPath   = './client/build/';
 
 //获取打包入口路径配置
-let getEntry = () => {
-  let pages = JSON.parse(fs.readFileSync('app.json', 'utf-8')).pages;
+const getEntry = () => {
+  const pages = JSON.parse(fs.readFileSync('app.json', 'utf-8')).pages;
   let entry = {};
 
   for (let i = 0; i < pages.length; i++) {
@@ -18,8 +18,8 @@ let getEntry = () => {
 module.exports = {
   entry: getEntry(),
   output: {
-    publicPath: './client/build/',
-    path: './client/build/',
+    publicPath: buildPath,
+    path: buildPath,
     filename: '/js/[name].js'
   },
 

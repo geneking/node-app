@@ -1,11 +1,11 @@
 'use strict';
 
 const registerSql = require('../../database/register/sql');
-const conn        =  require('../../database/connection');
+const conn        = require('../../database/connection');
 const session     = require('express-session');
 
 module.exports = (request, response) => {
-  let data = {
+  const data = {
     email: request.body.email,
     password: request.body.password
   };

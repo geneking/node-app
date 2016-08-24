@@ -1,7 +1,7 @@
 'use strict';
 
 const express   = require('express');
-const page_url  = require('../../common/page-url');
+const pageUrl   = require('../../common/page-url');
 const loginCtrl = require("../../controller/login/login");
 
 exports.route = (app) => {
@@ -11,7 +11,7 @@ exports.route = (app) => {
     if (req.session.user) {
       res.redirect('/home');
     }
-    res.sendFile(page_url.login);
+    res.sendFile(pageUrl.login);
   });
 
   //登录请求
