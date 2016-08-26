@@ -47,6 +47,7 @@
 	'use strict';
 
 	__webpack_require__(1);
+
 	__webpack_require__(6);
 
 	//适配

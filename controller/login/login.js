@@ -11,6 +11,10 @@ module.exports = (request, response) => {
 
   conn.query(loginSql(data) ,(err, res) => {
     if (res) {
+      if (err) {
+        console.log(err);
+        return false;
+      }
       request.session.user = res;
       response.json({
         code: 0,

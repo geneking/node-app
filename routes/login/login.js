@@ -9,7 +9,7 @@ exports.route = (app) => {
   //登录页
   app.get('/login', (req, res) => {
     if (req.session.user) {
-      res.redirect('/home');
+      res.redirect('/');
     }
     res.sendFile(pageUrl.login);
   });

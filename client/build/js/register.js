@@ -47,6 +47,7 @@
 	'use strict';
 
 	__webpack_require__(1);
+
 	__webpack_require__(9);
 
 	//适配
@@ -111,7 +112,10 @@
 	  $.post('/register', data, function (res) {
 	    var data = JSON.parse(res);
 	    if (+data.code == 0) {
-	      location.href = '/login';
+	      MT.toast('注册成功');
+	      setTimeout(function () {
+	        location.href = '/login';
+	      }, 2000);
 	    } else {
 	      MT.toast(data.msg);
 	    }

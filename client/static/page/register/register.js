@@ -65,7 +65,10 @@ const request = (data) => {
   $.post('/register', data, (res) => {
     const data = JSON.parse(res);
     if (+data.code == 0) {
-      location.href = '/login';
+      MT.toast('注册成功');
+      setTimeout(function(){
+        location.href = '/login';
+      }, 2000);
     } else {
       MT.toast(data.msg);
     }
